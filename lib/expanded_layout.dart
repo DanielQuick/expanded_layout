@@ -10,6 +10,7 @@ class ExpandedLayout extends StatefulWidget {
   final Widget bottomSection;
   final double minSpacing;
   final bool forceBottomVisible;
+  final ScrollController? controller;
 
   ExpandedLayout({
     Key? key,
@@ -17,6 +18,7 @@ class ExpandedLayout extends StatefulWidget {
     required this.bottomSection,
     this.minSpacing = 20,
     this.forceBottomVisible = false,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -70,6 +72,7 @@ class _ExpandedLayoutState extends State<ExpandedLayout> {
           );
         } else {
           return SingleChildScrollView(
+            controller: widget.controller,
             child: Column(
               children: [
                 topSection,
